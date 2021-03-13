@@ -20,7 +20,7 @@ export default {
 
   generate: {
     routes() {
-      return axios.get('https://api.github.com/repos/utautattaro/ghblog/issues').then(res => {
+      return axios.get('https://api.github.com/repos/coordinate-cat/jam-nuxt/issues').then(res => {
         return res.data.map(post => {
           return {
             route: '/post/' + post.id,
