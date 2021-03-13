@@ -1,3 +1,6 @@
+require('dotenv').config();
+const { X_API_KEY } = process.env;
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -18,17 +21,11 @@ export default {
     ]
   },
 
-  generate: {
-    routes() {
-      return axios.get('https://api.github.com/repos/coordinate-cat/jam-nuxt/issues').then(res => {
-        return res.data.map(post => {
-          return {
-            route: '/post/' + post.id,
-            payload: post
-          }
-        })
-      })
-    }
+  privateRuntimeConfig: {
+    apiKey: X_API_KEY
+  },
+  publicRuntimeConfig: {
+    apiKey: process.env.NODE_ENV !== 'production' ? X_API_KEY : undefined
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

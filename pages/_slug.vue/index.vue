@@ -1,26 +1,24 @@
 <template>
-  <ul>
-    <li v-for="content in contents" :key="content.id">
-      <nuxt-link :to="`/${content.id}`">
-        {{ content.title }}
-      </nuxt-link>
-    </li>
-  </ul>
+  <main class="main">
+    <h1 class="title bg-black text-white text-center text-xl">{{ title }}</h1>
+    <p class="publishedAt">{{ publishedAt }}</p>
+    <div class="post" v-html="body"></div>
+  </main>
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-  async asyncData({ $config, error }) {
+  async asyncData({ params, $config, error }) {
     try {
       const { data } = await axios.get(
-        'https://jam-nuxt.microcms.io/api/v1/blog',
+        `https://jam-nuxt.microcms.io/api/v1/blog/${params.slug}`,
         { headers: { 'X-API-KEY': $config.apiKey } }
       )
       return data
     } catch (err) {
-      error({
+      error ({
         statusCode: err.response.status,
         message: err.response.data.message,
       });
