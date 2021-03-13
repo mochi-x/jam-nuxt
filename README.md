@@ -1,5 +1,11 @@
 # jam-nuxt
 
+## Stack
+
+- nuxt(^2.14.12)
+- @nuxtjs/tailwindcss(^3.4.2)
+- @nuxtjs/axios(^5.12.5)
+
 ## Build Setup
 
 ```bash

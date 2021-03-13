@@ -21,6 +21,7 @@ export default {
     ]
   },
 
+  // API KEY hiding
   privateRuntimeConfig: {
     apiKey: X_API_KEY
   },

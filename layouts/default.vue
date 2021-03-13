@@ -22,6 +22,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
 }
 
 *,
@@ -29,6 +31,13 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+li {
+  border: solid 10px #000;
+}
+li:hover {
+  border: solid 10px #fff;
 }
 
 .button--green {
